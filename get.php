@@ -5,19 +5,20 @@
    
     $select_sql= "SELECT * FROM medicine WHERE medicine_name ='".$_POST["medicine_name"]."'";
 
-
+     $row=[];
     $result = $con->query($select_sql);
    
     if ($result->num_rows > 0)
     {
-        while ($row[] = $result->fetch_assoc())
+        while ($data = $result->fetch_assoc())
         {
-            $questions = $row;
-            $jsonData = json_encode($questions);
+            if($data!=null){
+                $row[] =$data;
+            }
         }
-        echo $jsonData;
+        echo json_encode(array("status"=>"true","message" => "Data inserted successfully","Data" => $row));;
     }
     else
-        echo "No Data Found";
+        echo json_encode(array("status"=>"false","message"=>"data doesnt exist in database "));
    
     $con->close(); 
