@@ -25,7 +25,7 @@ if (isset($_POST['health_condition'])) {
     } else {
         echo json_encode([
             "status" => "false",
-            "message" => "No data found for the specified health condition"
+            "message" => "No data found  the specified health condition"
         ]);
     }
 
