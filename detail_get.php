@@ -2,6 +2,7 @@
 
 
     include 'connection.php';
+    
     $select_sql= "SELECT generic_name FROM medicine WHERE medicine_name ='".$_POST["medicine_name"]."' ";
 
      $row=[];
